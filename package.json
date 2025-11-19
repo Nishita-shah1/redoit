@@ -13,6 +13,7 @@
     "@blocknote/mantine": "^0.14.6",
     "@blocknote/react": "^0.14.6",
     "@clerk/clerk-react": "^4.30.3",
+    "@clerk/nextjs": "^6.35.2",
     "@edgestore/react": "^0.3.3",
     "@edgestore/server": "^0.3.3",
     "@radix-ui/react-alert-dialog": "^1.0.5",
