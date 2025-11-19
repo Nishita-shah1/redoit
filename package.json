@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  
   "dependencies": {
     "@blocknote/core": "^0.14.5",
     "@blocknote/mantine": "^0.14.6",
