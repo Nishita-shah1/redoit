@@ -1,4 +1,6 @@
 "use client";
+import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
@@ -10,6 +12,26 @@ import Link from "next/link";
 export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const isPublicView = searchParams.get("public") === "true";
+
+  useEffect(()=>{
+    if(!isLoading && isAuthenticated && !isPublicView){
+      router.push('/documents');
+    }
+  },[isAuthenticated, isLoading, router, isPublicView]);
+
+
+  if(isAuthenticated && !isLoading && !isPublicView){
+    return(
+      <div className='w-full flex items-center justify-center pt-40'>
+        <Spinner />
+      </div>
+    )
+  }
+
+  
   return (
     // ADDED: pt-28 md:pt-40 to push content below the fixed Navbar
     <div className="max-w-4xl space-y-8 text-center pt-28 md:pt-40">
